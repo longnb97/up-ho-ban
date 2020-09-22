@@ -1,5 +1,5 @@
 // Angular
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -69,13 +69,4 @@ const routes: Routes = [
 	]
 })
 
-export class AuthModule {
-	static forRoot(): ModuleWithProviders {
-		return {
-			ngModule: AuthModule,
-			providers: [
-				AuthGuard
-			]
-		};
-	}
-}
+export class AuthModule {}

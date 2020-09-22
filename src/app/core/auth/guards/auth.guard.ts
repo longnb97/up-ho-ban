@@ -19,7 +19,6 @@ export class AuthGuard implements CanActivate {
 
             this.authService.getUserByToken().subscribe(
                 user => {
-                    console.log(user)
                     if (user) {
                         observer.next(true);
                     } else {

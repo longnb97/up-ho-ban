@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 		private route: ActivatedRoute,
 		private authNoticeService: AuthNoticeService
 	) {
+		this.authService.clearUserStorage();
 		this.unsubscribe = new Subject();
 	}
 
@@ -109,7 +110,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 					this.authNoticeService.setNotice('Login Success', 'success');
 					setTimeout(() => {
 						this.loginForm.enable();
-						console.log(this.returnUrl)
 						this.router.navigateByUrl(this.returnUrl);
 					}, 1000);
 				} else {

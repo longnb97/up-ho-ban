@@ -2,12 +2,9 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestureConfig, MatProgressSpinnerModule } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
-// Angular in memory
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // Perfect Scroll bar
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 // SVG inline
@@ -21,6 +18,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 
 // Copmponents
 import { AppComponent } from './app.component';
+
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -28,6 +26,7 @@ import { ThemeModule } from './views/theme/theme.module';
 
 // Partials
 import { PartialsModule } from './views/partials/partials.module';
+
 // Layout Services
 import {
 	KtDialogService,
@@ -43,15 +42,26 @@ import {
 // Auth
 import { AuthModule } from './views/pages/auth/auth.module';
 import { AuthService } from './core/auth/services/auth.service';
+import { AuthGuard } from './core/auth/guards/auth.guard';
 
 // Config
 import { LayoutConfig } from './core/_config/layout.config';
+
 // Highlight JS
 import { HIGHLIGHT_OPTIONS, HighlightLanguage } from 'ngx-highlightjs';
 import * as typescript from 'highlight.js/lib/languages/typescript';
 import * as scss from 'highlight.js/lib/languages/scss';
 import * as xml from 'highlight.js/lib/languages/xml';
 import * as json from 'highlight.js/lib/languages/json';
+
+// interceptor
+import { RequestInterceptor } from './core/_base/interceptor/request.interceptor';
+import { ErrorInterceptor } from './core/_base/interceptor/error.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+// loading overlay
+import { LoaderService } from './core/_base/layout/services/loader.service';
+import { LoadingOverlayComponent } from './views/partials/layout/loading-overlay/loading-overlay.component';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -72,15 +82,15 @@ export function initializeLayoutConfig(appConfig: LayoutConfigService) {
 
 export function hljsLanguages(): HighlightLanguage[] {
 	return [
-		{name: 'typescript', func: typescript},
-		{name: 'scss', func: scss},
-		{name: 'xml', func: xml},
-		{name: 'json', func: json}
+		{ name: 'typescript', func: typescript },
+		{ name: 'scss', func: scss },
+		{ name: 'xml', func: xml },
+		{ name: 'json', func: json }
 	];
 }
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, LoadingOverlayComponent],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
@@ -90,7 +100,7 @@ export function hljsLanguages(): HighlightLanguage[] {
 		PartialsModule,
 		CoreModule,
 		OverlayModule,
-		AuthModule.forRoot(),
+		AuthModule,
 		TranslateModule.forRoot(),
 		MatProgressSpinnerModule,
 		InlineSVGModule.forRoot(),
@@ -98,7 +108,9 @@ export function hljsLanguages(): HighlightLanguage[] {
 	],
 	exports: [],
 	providers: [
+		LoaderService,
 		AuthService,
+		AuthGuard,
 		LayoutConfigService,
 		LayoutRefService,
 		MenuConfigService,
@@ -121,14 +133,26 @@ export function hljsLanguages(): HighlightLanguage[] {
 		},
 		{
 			provide: HIGHLIGHT_OPTIONS,
-			useValue: {languages: hljsLanguages}
+			useValue: { languages: hljsLanguages }
+		},
+		// interceptor
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: RequestInterceptor,
+			multi: true
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: ErrorInterceptor,
+			multi: true
 		},
 		// template services
 		SubheaderService,
 		MenuHorizontalService,
 		MenuAsideService
 	],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	entryComponents: [LoadingOverlayComponent]
 })
 export class AppModule {
 }

@@ -19,5 +19,11 @@
       "dom"
     ],
 	"allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+    "strictPropertyInitialization": false,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": false
   }
 }

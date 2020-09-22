@@ -22,6 +22,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "hammerjs",
+              "object-path",
+              "chart.js/dist/Chart.min.js",
+              "rxjs/internal/scheduler/animationFrame"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -29,7 +36,7 @@
             ],
             "styles": [
               "src/styles.scss",
- 
+              
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "node_modules/socicon/css/socicon.css",
@@ -39,11 +46,9 @@
               "src/assets/plugins/flaticon2/flaticon.css",
               "src/assets/sass/style.angular.scss",
 
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeflex/primeflex.css"
-
+              "node_modules/primeicons/primeicons.css"
             ],
             "scripts": [
               "node_modules/popper.js/dist/umd/popper.js",
@@ -54,8 +59,7 @@
               "includePaths": [
                 "src/assets"
               ]
-            },
-            "es5BrowserSupport": true
+            }
           },
           "configurations": {
             "production": {

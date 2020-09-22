@@ -80,7 +80,11 @@ export class AuthService {
         this.router.navigateByUrl('/auth/login');
     }
 
-    requestPassword(email){
+    clearUserStorage() {
+        localStorage.removeItem(environment.authTokenUserKey);
+    }
+
+    requestPassword(email) {
 
     }
 
