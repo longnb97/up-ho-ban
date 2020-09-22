@@ -42,7 +42,7 @@ export const locale = {
 			},
 			INPUT: {
 				EMAIL: 'Email',
-				FULLNAME: 'Fullname',
+				FULLNAME: 'Full name',
 				PASSWORD: 'Password',
 				CONFIRM_PASSWORD: 'Confirm Password',
 				USERNAME: '用戶名'

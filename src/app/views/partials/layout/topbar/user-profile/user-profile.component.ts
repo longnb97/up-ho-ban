@@ -3,9 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 // RxJS
 import { Observable } from 'rxjs';
 // Service
-import { AuthService } from './../../../../../core/auth/_services/auth.service';
+import { AuthService } from './../../../../../core/auth/services/auth.service';
 // Models
-import { User } from './../../../../../core/auth/_models/user.model';
+import { User } from './../../../../../core/auth/models/user.model';
 
 @Component({
 	selector: 'kt-user-profile',

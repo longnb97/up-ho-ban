@@ -42,7 +42,7 @@ export const locale = {
 			},
 			INPUT: {
 				EMAIL: 'Email',
-				FULLNAME: 'Fullname',
+				FULLNAME: 'Full name',
 				PASSWORD: 'Mot de passe',
 				CONFIRM_PASSWORD: 'Confirm Password',
 				USERNAME: 'Nom d\'utilisateur'

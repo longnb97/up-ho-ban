@@ -1,3 +1,4 @@
+// theme demo: https://preview.keenthemes.com/metronic/demo1/index.html
 export class MenuConfig {
 	public defaults: any = {
 		header: {
@@ -388,10 +389,10 @@ export class MenuConfig {
 					bullet: 'dot',
 				},
 				{
-					title: 'Layout Builder',
+					title: 'Jsonschema',
 					root: true,
-					icon: 'flaticon2-expand',
-					page: '/builder'
+					icon: 'flaticon2-shield',
+					page: '/jsonschema'
 				},
 			]
 		},

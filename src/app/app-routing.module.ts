@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './views/theme/base/base.component';
 import { ErrorPageComponent } from './views/theme/content/error-page/error-page.component';
 // Auth
-import { AuthGuard } from './core/auth/_guards/auth.guard';
+import { AuthGuard } from './core/auth/guards/auth.guard';
 
 const routes: Routes = [
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
@@ -22,6 +22,10 @@ const routes: Routes = [
 			{
 				path: 'builder',
 				loadChildren: () => import('app/views/theme/content/builder/builder.module').then(m => m.BuilderModule)
+			},
+			{
+				path: 'jsonschema',
+				loadChildren: () => import('app/views/pages/jsonschema/jsonschema.module').then(m => m.JsonSchemaModule)
 			},
 			{
 				path: 'error/403',

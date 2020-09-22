@@ -7,7 +7,7 @@ import { from, Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 // Models
-import { User } from '../_models/user.model';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class AuthService {

@@ -41,7 +41,6 @@ import {
 } from './content/crud';
 // Layout partials
 import {
-	ContextMenu2Component,
 	ContextMenuComponent,
 	LanguageSelectorComponent,
 	NotificationComponent,
@@ -53,15 +52,10 @@ import {
 	SplashScreenComponent,
 	StickyToolbarComponent,
 	Subheader1Component,
-	Subheader2Component,
-	Subheader3Component,
-	Subheader4Component,
-	Subheader5Component,
 	SubheaderSearchComponent,
 	UserProfileComponent,
 } from './layout';
 // General
-import {NoticeComponent} from './content/general/notice/notice.component';
 import {PortletModule} from './content/general/portlet/portlet.module';
 // Errpr
 import {ErrorComponent} from './content/general/error/error.component';
@@ -72,7 +66,6 @@ import {InlineSVGModule} from 'ng-inline-svg';
 @NgModule({
 	declarations: [
 		ScrollTopComponent,
-		NoticeComponent,
 		ActionNotificationComponent,
 		DeleteEntityDialogComponent,
 		FetchEntityDialogComponent,
@@ -80,7 +73,6 @@ import {InlineSVGModule} from 'ng-inline-svg';
 		AlertComponent,
 
 		// topbar components
-		ContextMenu2Component,
 		ContextMenuComponent,
 		QuickPanelComponent,
 		ScrollTopComponent,
@@ -88,10 +80,6 @@ import {InlineSVGModule} from 'ng-inline-svg';
 		SplashScreenComponent,
 		StickyToolbarComponent,
 		Subheader1Component,
-		Subheader2Component,
-		Subheader3Component,
-		Subheader4Component,
-		Subheader5Component,
 		SubheaderSearchComponent,
 		LanguageSelectorComponent,
 		NotificationComponent,
@@ -104,7 +92,6 @@ import {InlineSVGModule} from 'ng-inline-svg';
 		PortletModule,
 
 		ScrollTopComponent,
-		NoticeComponent,
 		ActionNotificationComponent,
 		DeleteEntityDialogComponent,
 		FetchEntityDialogComponent,
@@ -112,7 +99,6 @@ import {InlineSVGModule} from 'ng-inline-svg';
 		AlertComponent,
 
 		// topbar components
-		ContextMenu2Component,
 		ContextMenuComponent,
 		QuickPanelComponent,
 		ScrollTopComponent,
@@ -120,10 +106,6 @@ import {InlineSVGModule} from 'ng-inline-svg';
 		SplashScreenComponent,
 		StickyToolbarComponent,
 		Subheader1Component,
-		Subheader2Component,
-		Subheader3Component,
-		Subheader4Component,
-		Subheader5Component,
 		SubheaderSearchComponent,
 		LanguageSelectorComponent,
 		NotificationComponent,

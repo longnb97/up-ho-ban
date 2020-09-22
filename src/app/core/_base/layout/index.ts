@@ -11,8 +11,6 @@ export { MenuDirective } from './directives/menu.directive';
 export { StickyDirective } from './directives/sticky.directive';
 
 // Models
-export { DataTableItemModel } from './models/datatable-item.model';
-export { ExternalCodeExample } from './models/external-code-example';
 export { OffcanvasOptions } from './directives/offcanvas.directive';
 export { ScrollTopOptions } from './directives/scroll-top.directive';
 export { ToggleOptions } from './directives/toggle.directive';

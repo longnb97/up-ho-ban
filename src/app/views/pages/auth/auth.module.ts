@@ -3,7 +3,6 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // Material
 import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 // Translate
@@ -16,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 
 // AuthGuard
-import { AuthGuard } from './../../../core/auth/_guards/auth.guard';
+import { AuthGuard } from './../../../core/auth/guards/auth.guard';
 
 const routes: Routes = [
 	{

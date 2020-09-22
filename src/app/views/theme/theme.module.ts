@@ -12,9 +12,6 @@ import { NgbProgressbarModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstr
 import { TranslateModule } from '@ngx-translate/core';
 // Loading bar
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-// NGRX
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 // Ngx DatePicker
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 // Perfect Scrollbar
@@ -32,7 +29,6 @@ import { TopbarComponent } from './header/topbar/topbar.component';
 import { MenuHorizontalComponent } from './header/menu-horizontal/menu-horizontal.component';
 import { PartialsModule } from '../partials/partials.module';
 import { BaseComponent } from './base/base.component';
-import { PagesModule } from '../pages/pages.module';
 import { HtmlClassService } from './html-class.service';
 import { HeaderMobileComponent } from './header/header-mobile/header-mobile.component';
 import { ErrorPageComponent } from './content/error-page/error-page.component';
@@ -76,7 +72,7 @@ import { ErrorPageComponent } from './content/error-page/error-page.component';
 		// topbar components
 		TopbarComponent,
 
-		// aside left menu components
+		// aside left menu compones
 		AsideLeftComponent,
 
 		// horizontal menu components
@@ -91,7 +87,6 @@ import { ErrorPageComponent } from './content/error-page/error-page.component';
 		CommonModule,
 		RouterModule,
 		NgxPermissionsModule.forChild(),
-		PagesModule,
 		PartialsModule,
 		CoreModule,
 		PerfectScrollbarModule,

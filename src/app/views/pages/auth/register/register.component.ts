@@ -1,5 +1,5 @@
 // Models
-import { User } from './../../../../core/auth/_models/user.model';
+import { User } from './../../../../core/auth/models/user.model';
 // Angular
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 // Services
-import { AuthService } from './../../../../core/auth/_services/auth.service';
+import { AuthService } from './../../../../core/auth/services/auth.service';
 import { AuthNoticeService } from './../../../../core/auth/auth-notice/auth-notice.service';
 
 // Auth

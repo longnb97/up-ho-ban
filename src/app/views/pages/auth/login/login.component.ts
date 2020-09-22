@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 // Translate
 import { TranslateService } from '@ngx-translate/core';
 // Service
-import { AuthService } from './../../../../core/auth/_services/auth.service';
+import { AuthService } from './../../../../core/auth/services/auth.service';
 import { AuthNoticeService } from './../../../../core/auth/auth-notice/auth-notice.service';
 // environment
 import { environment } from './../../../../../environments/environment.prod';

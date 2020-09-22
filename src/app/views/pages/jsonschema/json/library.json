@@ -1,0 +1,56 @@
+{
+    "_id": "abec4ed5-8f9e-47d8-89b3-73fd144gf9",
+    "name": "library",
+    "description": "test library",
+    "code": "library",
+    "collectionName": "library",
+    "accessPublic": "false",
+    "isActive": true,
+    "model": {
+        "firstName": {
+            "type": "string"
+        },
+        "lastName": {
+            "type": "string",
+            "unique": true,
+            "required": true,
+            "lowercase": true
+        },
+        "age": {
+            "type": "Number",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 100,
+            "exclusiveMaximum": false
+        }
+    },
+    "publicOption": {
+        "fieldSearch": [
+            {
+                "field": "firstName",
+                "accessValue": [
+                    "Hoà",
+                    "Bắc"
+                ],
+                "notAccessValue": [
+                    "Thái",
+                    "Phong"
+                ]
+            },
+            {
+                "field": "age",
+                "accessValue": [
+                    15,
+                    16
+                ],
+                "notAccessValue": []
+            }
+        ],
+        "projection": [
+            {
+                "key": "firstName",
+                "value": 0
+            }
+        ]
+    }
+}

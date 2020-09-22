@@ -42,7 +42,7 @@ import {
 } from './core/_base/layout';
 // Auth
 import { AuthModule } from './views/pages/auth/auth.module';
-import { AuthService } from './core/auth/_services/auth.service';
+import { AuthService } from './core/auth/services/auth.service';
 
 // Config
 import { LayoutConfig } from './core/_config/layout.config';

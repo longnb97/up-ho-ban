@@ -1,0 +1,31 @@
+<div class="page-container">
+    <form [formGroup]="schemaActionForm">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <h2>Json schema file  <br /> </h2>
+                <p-dropdown (onChange)="showJson($event)" [style]="{'width':'300px'}"  formControlName="jsonFile" [filter]="true" [options]="jsonFileList" placeholder="Select json schema file" [showClear]="true">
+                    <ng-template let-item pTemplate="selectedItem"> 
+                       <span style="font-size:14px;">{{item.label}}</span>
+                   </ng-template> 
+                   <ng-template let-car pTemplate="item"> 
+                       <div style="font-size:14px;">{{car.label}}</div>
+                   </ng-template>
+               </p-dropdown>
+            </div>
+        </div>
+        <br>
+        <div class="ui-g">
+            <div class="ui-g-12" style="width: 300px; display: flex; justify-content: space-between;">
+                <button type="button" style="font-size: 14px;" class="btn" [disabled]="schemaActionForm.invalid" pButton icon="pi pi-save" label="Create" (click)="createSchema()"></button>
+                <button type="button" style="font-size: 14px;" class="btn" [disabled]="schemaActionForm.invalid" pButton icon="pi pi-save" label="Update" (click)="updateSchema()"></button>
+                <button type="button" style="font-size: 14px;" class="btn" pButton icon="pi pi-save" label="Search" (click)="searchSchema()"></button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+    <!-- <div *ngIf="currentJsonSchema">
+        <h2>Json schema review  <br /> </h2>
+        <ngx-json-viewer [json]="currentJsonSchema" [expanded]="true"></ngx-json-viewer>
+    </div> -->
+</div>

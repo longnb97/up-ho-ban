@@ -11,8 +11,8 @@
 		<form class="kt-login__form kt-form" [formGroup]="registerForm" autocomplete="off">
 			<div class="form-group">
 				<mat-form-field>
-					<mat-label>Fullname</mat-label>
-					<input matInput type="text" placeholder="Fullname" formControlName="fullName"/>
+					<mat-label>Full name</mat-label>
+					<input matInput type="text" placeholder="Full name" formControlName="fullName"/>
 					<mat-error *ngIf="isControlHasError('fullName','required')">
 						<strong>{{ 'AUTH.VALIDATION.REQUIRED_FIELD' | translate }}</strong>
 					</mat-error>
