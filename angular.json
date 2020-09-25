@@ -27,7 +27,9 @@
               "hammerjs",
               "object-path",
               "chart.js/dist/Chart.min.js",
-              "rxjs/internal/scheduler/animationFrame"
+              "rxjs/internal/scheduler/animationFrame",
+              "ng-inline-svg/lib_commonjs/inline-svg.module",
+              "ng-inline-svg/lib_commonjs/svg-cache.service"
             ],
             "assets": [
               "src/favicon.ico",

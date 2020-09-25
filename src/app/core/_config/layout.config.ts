@@ -81,7 +81,7 @@ export class LayoutConfig {
 			},
 		},
 		'subheader': {
-			'display': true,
+			'display': false,
 			'layout': 'subheader-v1',
 			'fixed': true,
 			'width': 'fluid',

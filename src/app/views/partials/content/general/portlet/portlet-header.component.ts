@@ -65,12 +65,12 @@ export class PortletHeaderComponent implements OnInit, AfterViewInit, OnDestroy 
 		this.stickyDirective = new StickyDirective(this.el, this.platformId);
 	}
 
-	@HostListener('window:resize', ['$event'])
+	@HostListener('window:resize', [])
 	onResize() {
 		this.updateStickyPosition();
 	}
 
-	@HostListener('window:scroll', ['$event'])
+	@HostListener('window:scroll', [])
 	onScroll() {
 		this.updateStickyPosition();
 		const st = window.pageYOffset || document.documentElement.scrollTop;
