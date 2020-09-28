@@ -1,0 +1,5 @@
+base.component.scss 
+edit : 
+	kt-base {
+		opacity: 1;
+	}

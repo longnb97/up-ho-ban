@@ -1,6 +1,6 @@
 // Angular
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestureConfig, MatProgressSpinnerModule } from '@angular/material';
@@ -13,8 +13,6 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { environment } from '../environments/environment';
 // Hammer JS
 import 'hammerjs';
-// NGX Permissions
-import { NgxPermissionsModule } from 'ngx-permissions';
 
 // Copmponents
 import { AppComponent } from './app.component';
@@ -59,9 +57,11 @@ import { RequestInterceptor } from './core/_base/interceptor/request.interceptor
 import { ErrorInterceptor } from './core/_base/interceptor/error.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// loading overlay
-import { LoaderService } from './core/_base/layout/services/loader.service';
-import { LoadingOverlayComponent } from './views/partials/layout/loading-overlay/loading-overlay.component';
+// NGX Permissions
+import { NgxPermissionsModule } from 'ngx-permissions';
+
+// NgxSpinnerModule
+import { NgxSpinnerModule } from "ngx-spinner";
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -90,7 +90,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 }
 
 @NgModule({
-	declarations: [AppComponent, LoadingOverlayComponent],
+	declarations: [AppComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
@@ -108,7 +109,6 @@ export function hljsLanguages(): HighlightLanguage[] {
 	],
 	exports: [],
 	providers: [
-		LoaderService,
 		AuthService,
 		AuthGuard,
 		LayoutConfigService,
@@ -152,7 +152,7 @@ export function hljsLanguages(): HighlightLanguage[] {
 		MenuAsideService
 	],
 	bootstrap: [AppComponent],
-	entryComponents: [LoadingOverlayComponent]
+	entryComponents: []
 })
 export class AppModule {
 }

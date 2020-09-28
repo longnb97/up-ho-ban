@@ -14,11 +14,20 @@ import { ButtonModule } from 'primeng/button';
 import { MessagesUtilsService } from './../../../core/messages/messages-utils.service';
 import { JsonSchemaService } from './../../../core/jsonschema/services/jsonschema.service';
 
-// Libs
+// NgxPermissions
+import { NgxPermissionsGuard, NgxPermissionsModule } from 'ngx-permissions';
 
 const routes: Routes = [
     {
         path: '',
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['canReadInvoices'],
+                except: ['USER'],
+                redirectTo: 'error/401'
+            },
+        },
         component: JsonSchemaComponent
     }
 ];
@@ -29,6 +38,7 @@ const routes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(routes),
+        NgxPermissionsModule.forChild(),
         DropdownModule,
         ButtonModule
     ],

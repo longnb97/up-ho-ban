@@ -1,10 +1,10 @@
-import { LoaderService, LoadingOverlayRef } from './../layout/services/loader.service';
-import { AuthService } from './../../auth/services/auth.service';
 import { environment } from './../../../../environments/environment';
+import { AuthService } from './../../auth/services/auth.service';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
@@ -12,16 +12,16 @@ export class RequestInterceptor implements HttpInterceptor {
     noActiveLoader: string[] = [];
 
     constructor(
-        public loaderService: LoaderService,
-        public authService: AuthService
+        public authService: AuthService,
+        private spinner: NgxSpinnerService
     ) {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let loadingRef: LoadingOverlayRef;
+
         const activeLoader = this.noActiveLoader.some(item => req.url.includes(item)) === true ? false : true;
         if (activeLoader) {
-            Promise.resolve(null).then(() => loadingRef = this.loaderService.open());
+            this.spinner.show();
         }
         // check if url in no access token url list
         const shouldNotIncludeAccessToken = this.noAccessTokenUrls.some(item => req.url.includes(item));
@@ -35,13 +35,13 @@ export class RequestInterceptor implements HttpInterceptor {
             });
             return next.handle(newRequest).pipe(finalize(() => {
                 if (activeLoader === true) {
-                    loadingRef.close();
+                    this.spinner.hide();
                 }
             }));
         } else {
             return next.handle(req).pipe(finalize(() => {
                 if (activeLoader === true) {
-                    loadingRef.close();
+                    this.spinner.hide();
                 }
             }));
         }

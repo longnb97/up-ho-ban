@@ -1,4 +1,4 @@
-<div class="page-container">
+<div class="page-container" *ngxPermissionsOnly="['canReadInvoices']" >
     <form [formGroup]="schemaActionForm">
         <div class="ui-g">
             <div class="ui-g-12">
@@ -22,10 +22,14 @@
             </div>
         </div>
     </form>
-
-    <hr>
-    <!-- <div *ngIf="currentJsonSchema">
-        <h2>Json schema review  <br /> </h2>
-        <ngx-json-viewer [json]="currentJsonSchema" [expanded]="true"></ngx-json-viewer>
-    </div> -->
 </div>
+
+<div *ngxPermissionsOnly="['listMeeting']">
+    listMeeting
+</div>
+
+<div *ngxPermissionsOnly="['seeMeeting']">
+    seeMeeting
+</div>
+
+default

@@ -29,8 +29,12 @@ export class AuthService {
     }
 
     getUserByToken(): Observable<User> {
-        const userToken = localStorage.getItem(environment.authTokenUserKey);
-        return of<User>(JSON.parse(userToken));
+        try {
+            const userToken = localStorage.getItem(environment.authTokenUserKey);
+            return of<User>(JSON.parse(userToken));
+        } catch (err) {
+            return null;
+        }
     }
 
     register(user: User): Observable<any> {

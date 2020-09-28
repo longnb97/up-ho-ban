@@ -32,6 +32,7 @@ import { BaseComponent } from './base/base.component';
 import { HtmlClassService } from './html-class.service';
 import { HeaderMobileComponent } from './header/header-mobile/header-mobile.component';
 import { ErrorPageComponent } from './content/error-page/error-page.component';
+import { WithoutPermissionComponent } from './../pages/components/without-permission/without-permission.component';
 
 @NgModule({
 	declarations: [
@@ -56,6 +57,7 @@ import { ErrorPageComponent } from './content/error-page/error-page.component';
 		MenuHorizontalComponent,
 
 		ErrorPageComponent,
+		WithoutPermissionComponent
 	],
 	exports: [
 		BaseComponent,
@@ -79,6 +81,7 @@ import { ErrorPageComponent } from './content/error-page/error-page.component';
 		MenuHorizontalComponent,
 
 		ErrorPageComponent,
+		WithoutPermissionComponent
 	],
 	providers: [
 		HtmlClassService,

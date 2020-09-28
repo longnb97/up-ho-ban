@@ -1,9 +1,9 @@
 // USA
 export const locale = {
-	lang: 'en',
+	lang: 'vi',
 	data: {
 		TRANSLATOR: {
-			SELECT: 'Select your language',
+			SELECT: 'Chọn ngôn ngữ',
 		},
 		MENU: {
 			ACTIONS: 'Actions',
